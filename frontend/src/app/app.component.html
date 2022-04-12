@@ -1,0 +1,10 @@
+<mat-toolbar class="header">
+  <h1>BIM Coordinators Community Forum</h1>
+  <button mat-raised-button color="primary" *ngIf="!loginDisplay" (click)="login()">Login</button>
+  <button mat-raised-button color="primary" *ngIf="!loginDisplay" (click)="signup()">Signup</button>
+  <button mat-raised-button color="primary" *ngIf="loginDisplay" (click)="logout()">Logout</button>
+</mat-toolbar>
+<app-main *ngIf="loginDisplay"></app-main>
+
+<div *ngIf="response">{{response | json}}</div>
+

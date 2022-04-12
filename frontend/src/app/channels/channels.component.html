@@ -1,0 +1,11 @@
+<h2>List of Channels</h2>
+
+
+<div *ngFor="let team of teams">
+  <a href="javascript:void(0)" (click)="loadChannels(team)">{{team.displayName}}</a>
+  <ul *ngIf="team.channels">
+    <li *ngFor="let channel of team.channels"><a href="javascript:void(0)"
+                                                 (click)="selectChannel(team.id, channel.id)">{{channel.displayName}}</a></li>
+  </ul>
+</div>
+

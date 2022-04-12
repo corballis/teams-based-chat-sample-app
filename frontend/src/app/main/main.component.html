@@ -1,0 +1,13 @@
+<mat-drawer-container class="chat-container" *ngIf="loginDisplay">
+  <mat-drawer mode="side" opened>
+    <channels (selectedTeamAndChannel)="setSelectedChannel($event)" [teams]="teams?.value"></channels>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <posts [selectedTeamAndChannel]="[selectedTeamId, selectedChannelId]"></posts>
+  </mat-drawer-content>
+  <mat-drawer mode="side" opened position="end">
+  </mat-drawer>
+
+</mat-drawer-container>
+

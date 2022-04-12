@@ -1,0 +1,22 @@
+<h2>POSTS</h2>
+
+<div *ngIf="this.selectedPosts.length > 0">
+  <mat-card class="post" *ngFor="let post of selectedPosts.slice().reverse()">
+    <mat-card-title><strong>{{post?.from?.user?.displayName}}</strong> - <em>{{post?.createdDateTime | date:'short'}}</em></mat-card-title>
+    <mat-card-content>{{post?.body?.content}}</mat-card-content>
+  </mat-card>
+</div>
+<mat-card *ngIf="this.selectedTeamAndChannel && this.selectedTeamAndChannel.length === 2 && this.selectedTeamAndChannel[0]">
+  <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Start a new conversation</mat-label>
+        <textarea matInput [(ngModel)]="newMessage"></textarea>
+      </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="sendMessage(newMessage)">Send</button>
+  </mat-card-actions>
+</mat-card>
+<div *ngIf="!this.selectedTeamAndChannel[0]">
+  select a channel from the left
+</div>

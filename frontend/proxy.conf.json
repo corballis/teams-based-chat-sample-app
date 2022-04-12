@@ -1,0 +1,6 @@
+{
+  "/backend": {
+    "target": "http://192.168.0.122:8080/backend",
+    "secure": false
+  }
+}
